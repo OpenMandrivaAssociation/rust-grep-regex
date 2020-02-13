@@ -1,0 +1,8 @@
+--- grep-regex-0.1.5/Cargo.toml	1970-01-01T00:00:00+00:00
++++ grep-regex-0.1.5/Cargo.toml	2020-01-24T01:08:38.168482+00:00
+@@ -37,4 +37,4 @@
+ version = "0.6.5"
+ 
+ [dependencies.thread_local]
+-version = "0.3.6"
++version = "1"

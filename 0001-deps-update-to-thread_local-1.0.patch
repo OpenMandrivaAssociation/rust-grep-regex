@@ -1,0 +1,27 @@
+From cb2f6ddc61b79b7acf59bb00a6be9f1740aa55b8 Mon Sep 17 00:00:00 2001
+From: Andrew Gallant <jamslam@gmail.com>
+Date: Thu, 9 Jan 2020 20:58:28 -0500
+Subject: [PATCH] deps: update to thread_local 1.0
+
+We also update the pcre2 and regex dependencies, which removes any other
+lingering uses of thread_local 0.3.
+---
+ grep-regex/src/word.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/word.rs b/src/word.rs
+index ff1e5dc3f6cb..9941bab02316 100644
+--- a/src/word.rs
++++ b/src/word.rs
+@@ -78,7 +78,7 @@ impl Matcher for WordMatcher {
+         // if it's worth it.
+ 
+         let cell = self.locs.get_or(|| {
+-            Box::new(RefCell::new(self.regex.capture_locations()))
++            RefCell::new(self.regex.capture_locations())
+         });
+         let mut caps = cell.borrow_mut();
+         self.regex.captures_read_at(&mut caps, haystack, at);
+-- 
+2.24.1
+
